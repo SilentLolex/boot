@@ -1,4 +1,4 @@
-package com.mq;
+package com.mq.p2p;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -10,14 +10,12 @@ import javax.jms.*;
 @Slf4j
 public class PTPProducer {
 
-    private static final String ACTIVEMQ_URL = "tcp://192.168.77.128:61616";
+    private static final String ACTIVEMQ_URL = "tcp://192.168.206.130:61616";
     private static final String QUEUE_NAME = "PTP";
 
     public static void main(String[] args) {
         try {
             ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(ACTIVEMQ_URL);
-
-
             Connection connection = factory.createConnection();
             connection.start();
 
@@ -28,11 +26,9 @@ public class PTPProducer {
 
 
             MessageProducer producer = session.createProducer(queue);
-            // producer.setDeliveryMode();
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 100000; i++) {
                 TextMessage textMessage = session.createTextMessage("msg:" + i);
-                //textMessage.setJMSDeliveryMode();
                 producer.send(textMessage);
             }
             producer.close();
@@ -41,8 +37,8 @@ public class PTPProducer {
 
             System.out.println("sucess");
 
-        } catch (Throwable t){
-            log.debug("wrong",t);
+        } catch (Exception e){
+            log.debug("wrong",e);
         }
 
     }
