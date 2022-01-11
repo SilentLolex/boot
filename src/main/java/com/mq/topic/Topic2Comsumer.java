@@ -6,6 +6,11 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
+/**
+ * @Author: SilentLolex
+ * @Date: 20220111
+ */
+
 @Data
 @Slf4j
 public class Topic2Comsumer {

@@ -6,12 +6,18 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
+/**
+ * @Author: SilentLolex
+ * @Date: 20220111
+ */
+
 @Data
 @Slf4j
-public class PTPProducer {
+public class PtpProducer {
 
     private static final String ACTIVEMQ_URL = "tcp://192.168.206.130:61616";
     private static final String QUEUE_NAME = "PTP";
+    private static final int MESSAGE_NUM = 100000;
 
     public static void main(String[] args) {
         try {
@@ -27,7 +33,7 @@ public class PTPProducer {
 
             MessageProducer producer = session.createProducer(queue);
 
-            for (int i = 0; i < 100000; i++) {
+            for (int i = 0; i < MESSAGE_NUM; i++) {
                 TextMessage textMessage = session.createTextMessage("msg:" + i);
                 producer.send(textMessage);
             }

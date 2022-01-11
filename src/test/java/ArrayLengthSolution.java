@@ -3,6 +3,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @Author: SilentLolex
+ * @Date: 20220111
+ */
+
 public class ArrayLengthSolution {
     public static void main(String[] args) {
         int[] arr = {0};

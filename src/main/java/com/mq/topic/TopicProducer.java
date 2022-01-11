@@ -6,12 +6,18 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
+/**
+ * @Author: SilentLolex
+ * @Date: 20220111
+ */
+
 @Data
 @Slf4j
 public class TopicProducer {
 
     private static final String ACTIVEMQ_URL = "tcp://192.168.206.130:61616";
     private static final String TOPIC_NAME = "Topic-01";
+    private static final int MESSAGE_NUM = 100;
 
     public static void main(String[] args) {
         try {
@@ -27,7 +33,7 @@ public class TopicProducer {
             // 对话创建生产者/消费者，创建时设置好目的地
             MessageProducer producer = session.createProducer(topic);
             // 生产者/消费者，与MQ交互
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < MESSAGE_NUM; i++) {
                 TextMessage textMessage = session.createTextMessage("topicMessage:" + i);
                 producer.send(textMessage);
             }

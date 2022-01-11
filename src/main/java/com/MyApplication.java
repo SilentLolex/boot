@@ -7,14 +7,14 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @Author: SilentLolex
+ * @Date: 20220111
+ */
+
 @SpringBootApplication
 public class MyApplication {
 
-    /*@RequestMapping("/")
-    String home() {
-        return "Hello World!ggg";
-    }
-*/
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(MyApplication.class, args);
         String[] names = run.getBeanDefinitionNames();

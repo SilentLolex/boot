@@ -4,6 +4,10 @@ import sun.misc.Launcher;
 
 import java.net.URL;
 
+/**
+ * @Author: SilentLolex
+ * @Date: 20220111
+ */
 public class ClassLoaderTest {
     public static void main(String[] args) {
         ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();

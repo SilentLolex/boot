@@ -6,22 +6,25 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
+/**
+ * @Author: SilentLolex
+ * @Date: 20220111
+ */
+
 @Data
 @Slf4j
-public class PTP3Comsumer {
+public class PtpComsumer {
     private static final String ACTIVEMQ_URL = "tcp://192.168.206.130:61616";
     private static final String QUEUE_NAME = "PTP";
 
     public static void main(String[] args) {
-        log.debug("33333");
+        log.debug("2222222222222");
         try {
             ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(ACTIVEMQ_URL);
             Connection connection = factory.createConnection();
             connection.start();
 
             Session session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
-            // TODO
-            // Session session = connection.createSession();
             Queue queue = session.createQueue(QUEUE_NAME);
 
 
