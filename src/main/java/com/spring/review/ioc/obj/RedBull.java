@@ -8,9 +8,8 @@ import lombok.extern.slf4j.Slf4j;
  * @Date: 2022/1/13 8:45
  */
 @Slf4j
-// @Component
 @MyComponent
-public class RedBull  implements Car{
+public class RedBull implements Car {
 
     @Override
     public void run() {

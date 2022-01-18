@@ -4,6 +4,7 @@ import com.spring.review.annotation.MyComponentScan;
 import com.spring.review.ioc.human.Boy;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @Author: SilentLolex
@@ -11,8 +12,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 
 // 告诉Spring从哪个包下扫描Bean，不写就是当前包路径
-//@ComponentScan(basePackages = "com.spring.ioc")
-@MyComponentScan("com.spring.review.ioc")
+@ComponentScan(basePackages = "com.spring.review.ioc")
+@MyComponentScan( "com.spring.review")
 public class IocReview {
     public static void main(String[] args) {
         // 将Main(配置信息)传入到ApplicationContext(IoC容器)中
@@ -20,5 +21,9 @@ public class IocReview {
         // 从(IoC容器)中获取到我们的boy
         Boy boy = (Boy) context.getBean("boy");  // 开车
         boy.drive();
+
+
+        MyIocApplicationContext myIocApplicationContext = new MyIocApplicationContext(IocReview.class);
     }
 }
+
